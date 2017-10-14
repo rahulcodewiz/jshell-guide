@@ -1,6 +1,6 @@
 # jshell-example
 ------------
-###Make sure java home is pointing to JDK-9
+###Make sure java home is set to JDK-9
 ```
 java -version
 rauls-MacBook-Pro:common-utils rahul$ java -version
@@ -36,4 +36,18 @@ mods
 
 -------------
 ####Lets try it with jshell
-=======
+
+rauls-MacBook-Pro:common-utils rahul$ jshell --class-path 'mods/com.ts.util@1.0.jar'
+|  Welcome to JShell -- Version 9
+|  For an introduction type: /help intro
+
+jshell> com.ts.util.Utils.regexReplace("jshell hello world","\\s","++")
+$1 ==> "jshell++hello++world"
+
+###Try using bash command
+
+echo 'com.ts.util.Utils.regexReplace("jshell hello world","\\s","++")' | jshell --class-path 'mods/com.ts.util@1.0.jar' --feedback concise |sed -n '2p' | sed -En 's/[^>]*>(.+)/\1/gp'
+
+You can also create one more script that will take argument as java command and run on jshell
+
+./common-utils/bin/run-jshell.sh 'com.ts.util.Utils.regexReplace("jshell hello world","\\s","++")'
