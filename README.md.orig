@@ -1,4 +1,5 @@
 # jshell-example
+<<<<<<< HEAD
 ------------
 ###Make sure java home is pointing to JDK-9
 ```
@@ -37,3 +38,4 @@ mods
 -------------
 ####Lets try it with jshell
 =======
+>>>>>>> f9ba9ef29861c5a47dcd71dd18d73e410c824a90
